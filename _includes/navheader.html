@@ -29,15 +29,11 @@
         </li>
         {% endfor %}
         <li class="nav-item">
-          {% assign languages = site.data.languages.lang | keys %}
-          {% for lang in languages %}
-          <a href="{{ site.baseurl }}{{ site.lang_url[lang] }}" class="language-button">
-            {% case lang %}
-            {% when 'en' %}EN
-            {% when 'es' %}ES
-            {% when 'de' %}DE
-            {% else %}{{ lang | upcase }}
-            {% endcase %}
+          {% assign language_map = site.data.languages.lang %}
+          {% for item in language_map %}
+          {% assign lang_code = item[0] %}
+          <a href="{{ lang_code | downcase }}" class="language-button">
+            "{{ lang_code | downcase }}"
           </a>
           {% endfor %}
         </li>
