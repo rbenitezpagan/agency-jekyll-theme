@@ -29,9 +29,7 @@
         </li>
         {% endfor %}
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{{ site.baseurl }}{{ site.lang_url[site.locale] }}">{{
-            site.data.sitetext[site.locale].language }}</a>
-          {% assign languages = site.data.languages[lang] | keys %}
+          {% assign languages = site.data.languages.lang | keys %}
           {% for lang in languages %}
           <a href="{{ site.baseurl }}{{ site.lang_url[lang] }}" class="language-button">
             {% case lang %}
