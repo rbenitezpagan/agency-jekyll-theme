@@ -29,20 +29,19 @@
         </li>
         {% endfor %}
         <div class="language-selector">
-          <label for="language-select">Language:</label>
-          <select id="language-select">
-            {% assign languages = site.data.sitetext | keys %}
-            {% for lang in languages %}
-            <option value="{{ lang }}" {% if page.lang==lang or site.lang==lang %}selected{% endif %}>
-              {% case lang %}
-              {% when 'en' %}English
-              {% when 'es' %}Español
-              {% when 'de' %}Deutsch
-              {% else %}{{ lang | capitalize }}
-              {% endcase %}
-            </option>
-            {% endfor %}
-          </select>
+          <span>Language:</span>
+          {% assign languages = site.data.sitetext | keys %}
+          {% for lang in languages %}
+          <a href="{% if lang != site.default_lang %}/{{ lang }}{{ page.url | remove: '/' }}{% else %}{{ page.url }}{% endif %}"
+            class="language-button {% if page.lang == lang or (page.lang == nil and lang == site.default_lang) %}active{% endif %}">
+            {% case lang %}
+            {% when 'en' %}EN
+            {% when 'es' %}ES
+            {% when 'de' %}DE
+            {% else %}{{ lang | upcase }}
+            {% endcase %}
+          </a>
+          {% endfor %}
         </div>
         {% else %}
         {% for link in site.data.navigation.nav %}
