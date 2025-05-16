@@ -24,7 +24,11 @@
   <script src="assets/js/agency.min.js"></script>
 
   <!-- Custom scripts for language selector -->
-  <script src="assets/js/language-selector.js"></script>
+  <script type="text/javascript">
+    function changeLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+    }
+  </script>
 
 </body>
 

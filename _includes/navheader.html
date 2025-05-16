@@ -32,9 +32,9 @@
           {% assign language_map = site.data.languages.lang %}
           {% for item in language_map %}
           {% assign lang_code = item[0] %}
-          <a href="{{ lang_code | downcase }}" class="language-button">
+          <button onclick="changeLang('{{ lang_code }}')">
             "{{ lang_code | downcase }}"
-          </a>
+          </button>
           {% endfor %}
         </li>
         {% else %}
