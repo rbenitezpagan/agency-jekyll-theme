@@ -28,12 +28,12 @@
           {%- endif -%}
         </li>
         {% endfor %}
-        <div class="language-selector">
-          <span>Language:</span>
-          {% assign languages = site.data.sitetext | keys %}
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="{{ site.baseurl }}{{ site.lang_url[site.locale] }}">{{
+            site.data.sitetext[site.locale].language }}</a>
+          {% assign languages = site.data.languages[lang] | keys %}
           {% for lang in languages %}
-          <a href="{% if lang != site.default_lang %}/{{ lang }}{{ page.url | remove: '/' }}{% else %}{{ page.url }}{% endif %}"
-            class="language-button {% if page.lang == lang or (page.lang == nil and lang == site.default_lang) %}active{% endif %}">
+          <a href="{{ site.baseurl }}{{ site.lang_url[lang] }}" class="language-button">
             {% case lang %}
             {% when 'en' %}EN
             {% when 'es' %}ES
@@ -42,7 +42,7 @@
             {% endcase %}
           </a>
           {% endfor %}
-        </div>
+        </li>
         {% else %}
         {% for link in site.data.navigation.nav %}
         <li class="nav-item">

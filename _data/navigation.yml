@@ -25,6 +25,7 @@ en: &DEFAULT_EN
       section: contact
     - title: "Theme Source"
       url: https://github.com/raviriley/agency-jekyll-theme/
+    - title: "Lang"
 
 en-001: #English (World)
   <<: *DEFAULT_EN
